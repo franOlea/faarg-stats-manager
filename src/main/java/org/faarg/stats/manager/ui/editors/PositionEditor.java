@@ -1,4 +1,4 @@
-package org.faarg.stats.manager.service.editors;
+package org.faarg.stats.manager.ui.editors;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.event.ShortcutAction;
@@ -10,7 +10,7 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import org.faarg.stats.manager.model.league.team.player.Position;
+import org.faarg.stats.manager.model.team.player.Position;
 import org.faarg.stats.manager.service.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,12 +22,12 @@ public class PositionEditor extends VerticalLayout {
 
     private Position position;
 
-    TextField name = new TextField("Nombre");
+    private TextField name = new TextField("Nombre");
 
-    Button save = new Button("Guardar", FontAwesome.SAVE);
-    Button cancel = new Button("Cancelar");
-    Button delete = new Button("Eliminar", FontAwesome.TRASH_O);
-    CssLayout actions = new CssLayout(save, cancel, delete);
+    private Button save = new Button("Guardar", FontAwesome.SAVE);
+    private Button cancel = new Button("Cancelar");
+    private Button delete = new Button("Eliminar", FontAwesome.TRASH_O);
+    private CssLayout actions = new CssLayout(save, cancel, delete);
 
     @Autowired
     public PositionEditor(PositionRepository repository) {

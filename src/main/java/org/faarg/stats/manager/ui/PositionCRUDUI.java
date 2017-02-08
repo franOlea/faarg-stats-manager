@@ -1,4 +1,4 @@
-package org.faarg.stats.manager;
+package org.faarg.stats.manager.ui;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.data.util.BeanItemContainer;
@@ -6,8 +6,8 @@ import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
-import org.faarg.stats.manager.model.league.team.player.Position;
-import org.faarg.stats.manager.service.editors.PositionEditor;
+import org.faarg.stats.manager.model.team.player.Position;
+import org.faarg.stats.manager.ui.editors.PositionEditor;
 import org.faarg.stats.manager.service.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,6 +43,9 @@ public class PositionCRUDUI extends UI {
 
         grid.setHeight(300, Unit.PIXELS);
         grid.setColumns("id", "name");
+
+        grid.getColumn("id").setHeaderCaption("ID");
+        grid.getColumn("name").setHeaderCaption("NOMBRE");
 
         // Connect selected Customer to editor or hide if none is selected
         grid.addSelectionListener(e -> {
