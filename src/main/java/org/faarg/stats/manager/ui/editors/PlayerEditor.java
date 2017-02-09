@@ -7,22 +7,24 @@ import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import org.faarg.stats.manager.model.team.Team;
-import org.faarg.stats.manager.service.repository.TeamRepository;
+import org.faarg.stats.manager.model.team.player.Player;
+import org.faarg.stats.manager.service.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringComponent
 @UIScope
-public class TeamEditor extends VerticalLayout {
+public class PlayerEditor extends VerticalLayout {
 
-    private final TeamRepository repository;
+    private final PlayerRepository repository;
 
-    private Team team;
+    private Player player;
 
-    private TextField name = new TextField("Nombre");
-    private TextField coachName = new TextField("Nombre del coach");
-    private TextField websiteUrl = new TextField("Pagina web");
-    private DateField creationYear = new DateField("Creacion");
+    private TextField firstName = new TextField("Nombre");
+    private TextField lastName = new TextField("Apellido");
+    private DateField birthDate = new DateField("Nacimiento");
+    private DateField joinedLeague = new DateField("Ingreso en la liga");
+    private TextField weight = new TextField("Peso (Kg)");
+    private TextField height = new TextField("Altura (Mt)");
 
     private Button save = new Button("Guardar", FontAwesome.SAVE);
     private Button cancel = new Button("Cancelar");
@@ -30,16 +32,17 @@ public class TeamEditor extends VerticalLayout {
     private CssLayout actions = new CssLayout(save, cancel, delete);
 
     @Autowired
-    public TeamEditor(final TeamRepository teamRepository) {
-        this.repository = teamRepository;
+    public PlayerEditor(final PlayerRepository playerRepository) {
+        this.repository = playerRepository;
 
-        creationYear.setDateFormat("yyyy");
+        joinedLeague.setDateFormat("yyyy");
 
         addComponents(
-                name,
-                coachName,
-                websiteUrl,
-                creationYear,
+                firstName,
+                lastName,
+                birthDate,
+                weight,
+                height,
                 actions
         );
 
@@ -48,9 +51,9 @@ public class TeamEditor extends VerticalLayout {
         save.setStyleName(ValoTheme.BUTTON_PRIMARY);
         save.setClickShortcut(ShortcutAction.KeyCode.ENTER);
 
-        save.addClickListener(e -> repository.save(team));
-        delete.addClickListener(e -> repository.delete(team));
-        cancel.addClickListener(e -> editTeam(team));
+        save.addClickListener(e -> repository.save(player));
+        delete.addClickListener(e -> repository.delete(player));
+        cancel.addClickListener(e -> editPlayer(player));
         setVisible(false);
     }
 
@@ -58,17 +61,17 @@ public class TeamEditor extends VerticalLayout {
         void onChange();
     }
 
-    public final void editTeam(Team editedTeam) {
-        final boolean persisted = editedTeam.getId() != null;
+    public final void editPlayer(Player editedPlayer) {
+        final boolean persisted = editedPlayer.getId() != null;
         if(persisted) {
-            team = repository.findOne(editedTeam.getId());
+            player = repository.findOne(editedPlayer.getId());
         } else {
-            team = editedTeam;
+            player = editedPlayer;
         }
 
         cancel.setVisible(persisted);
 
-        BeanFieldGroup.bindFieldsUnbuffered(team, this);
+        BeanFieldGroup.bindFieldsUnbuffered(player, this);
         setVisible(true);
 
         save.focus();

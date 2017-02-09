@@ -24,7 +24,8 @@ public class TeamCRUDUI extends UI {
     private final Button addNewBtn;
 
     @Autowired
-    public TeamCRUDUI(TeamRepository repository, TeamEditor editor) {
+    public TeamCRUDUI(final TeamRepository repository,
+                      final TeamEditor editor) {
         this.repository = repository;
         this.editor = editor;
         this.grid = new Grid();

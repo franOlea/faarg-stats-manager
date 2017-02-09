@@ -1,7 +1,9 @@
 package org.faarg.stats.manager;
 
 import org.faarg.stats.manager.model.team.Team;
+import org.faarg.stats.manager.model.team.player.Player;
 import org.faarg.stats.manager.model.team.player.Position;
+import org.faarg.stats.manager.service.repository.PlayerRepository;
 import org.faarg.stats.manager.service.repository.PositionRepository;
 import org.faarg.stats.manager.service.repository.TeamRepository;
 import org.slf4j.Logger;
@@ -23,7 +25,8 @@ public class Application {
 
     @Bean
     public CommandLineRunner loadData(PositionRepository positionRepository,
-                                      TeamRepository teamRepository) {
+                                      TeamRepository teamRepository,
+                                      PlayerRepository playerRepository) {
         return (args) -> {
             positionRepository.save(new Position("QB"));
             positionRepository.save(new Position("RB"));
@@ -43,6 +46,24 @@ public class Application {
             log.info("-------------------------------");
             for (Team team : teamRepository.findAll()) {
                 log.info(team.toString());
+            }
+            log.info("");
+
+            playerRepository.save(
+                    new Player(
+                            "Fran",
+                            "Olea",
+                            new Date(0),
+                            new Date(0),
+                            75,
+                            1.75f,
+                            "image.profile.url")
+            );
+
+            log.info("Players found with findAll():");
+            log.info("-------------------------------");
+            for (Player player : playerRepository.findAll()) {
+                log.info(player.toString());
             }
             log.info("");
         };

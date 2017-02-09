@@ -79,6 +79,14 @@ public class Team {
         this.creationYear = creationYear;
     }
 
+    public Set<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
+    }
+
     @Override
     public String toString() {
         return "Team{" +
