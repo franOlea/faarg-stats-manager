@@ -23,6 +23,10 @@ public class Game {
     @OneToMany(mappedBy = "team")
     private List<Play> plays;
 
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="RESULT")
+    private Result result;
+
     public Game() {
     }
 }
