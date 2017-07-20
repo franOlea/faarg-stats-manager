@@ -51,31 +51,41 @@ public class Player {
     public Player() {
     }
 
-    public Player(final String firstName,
+    public Player(final Long id,
+                  final String firstName,
                   final String lastName,
                   final Date birthDate,
                   final Date joinedYear,
                   final float weight,
                   final float height,
-                  final String profileImageUrl) {
+                  final Set<Position> positions,
+                  final String profileImageUrl,
+                  final Team team) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.joinedYear = joinedYear;
         this.weight = weight;
         this.height = height;
+        this.positions = positions;
         this.profileImageUrl = profileImageUrl;
+        this.team = team;
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -83,7 +93,7 @@ public class Player {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -91,7 +101,7 @@ public class Player {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(final Date birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -99,7 +109,7 @@ public class Player {
         return joinedYear;
     }
 
-    public void setJoinedYear(Date joinedYear) {
+    public void setJoinedYear(final Date joinedYear) {
         this.joinedYear = joinedYear;
     }
 
@@ -107,7 +117,7 @@ public class Player {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(final float weight) {
         this.weight = weight;
     }
 
@@ -115,15 +125,47 @@ public class Player {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(final float height) {
         this.height = height;
+    }
+
+    public Set<Position> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(final Set<Position> positions) {
+        this.positions = positions;
     }
 
     public String getProfileImageUrl() {
         return profileImageUrl;
     }
 
-    public void setProfileImageUrl(String profileImageUrl) {
+    public void setProfileImageUrl(final String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(final Team team) {
+        this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", joinedYear=" + joinedYear +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", positions=" + positions +
+                ", profileImageUrl='" + profileImageUrl + '\'' +
+                ", team=" + team +
+                '}';
     }
 }

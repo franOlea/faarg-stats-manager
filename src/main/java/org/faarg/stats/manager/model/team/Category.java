@@ -1,10 +1,10 @@
-package org.faarg.stats.manager.model.team.player;
+package org.faarg.stats.manager.model.team;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PLAYER_POSITIONS")
-public class Position {
+@Table(name = "TEAM_CATEGORIES")
+public class Category {
 
     @Id
     @GeneratedValue
@@ -14,10 +14,10 @@ public class Position {
     @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
-    public Position() {
+    public Category() {
     }
 
-    public Position(final Long id, final String name) {
+    public Category(final Long id, final String name) {
         this.id = id;
         this.name = name;
     }
@@ -40,7 +40,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
+        return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

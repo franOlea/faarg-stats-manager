@@ -18,6 +18,10 @@ public class Team {
     @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CATEGORY")
+    private Category category;
+
     @Column(name = "COACH_NAME", nullable = false)
     private String coachName;
 
@@ -47,11 +51,15 @@ public class Team {
         return id;
     }
 
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -59,7 +67,7 @@ public class Team {
         return coachName;
     }
 
-    public void setCoachName(String coachName) {
+    public void setCoachName(final String coachName) {
         this.coachName = coachName;
     }
 
@@ -67,7 +75,7 @@ public class Team {
         return websiteUrl;
     }
 
-    public void setWebsiteUrl(String websiteUrl) {
+    public void setWebsiteUrl(final String websiteUrl) {
         this.websiteUrl = websiteUrl;
     }
 
@@ -75,7 +83,7 @@ public class Team {
         return creationYear;
     }
 
-    public void setCreationYear(Date creationYear) {
+    public void setCreationYear(final Date creationYear) {
         this.creationYear = creationYear;
     }
 
@@ -83,7 +91,7 @@ public class Team {
         return players;
     }
 
-    public void setPlayers(Set<Player> players) {
+    public void setPlayers(final Set<Player> players) {
         this.players = players;
     }
 
@@ -95,6 +103,7 @@ public class Team {
                 ", coachName='" + coachName + '\'' +
                 ", websiteUrl='" + websiteUrl + '\'' +
                 ", creationYear=" + creationYear +
+                ", players=" + players +
                 '}';
     }
 }
