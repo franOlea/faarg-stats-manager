@@ -1,6 +1,6 @@
-package org.faarg.stats.manager.model.team.player;
+package org.faarg.stats.manager.team.player;
 
-import org.faarg.stats.manager.model.team.Team;
+import org.faarg.stats.manager.team.Team;
 
 import javax.persistence.*;
 import java.sql.Date;

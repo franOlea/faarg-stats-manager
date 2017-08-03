@@ -1,4 +1,4 @@
-package org.faarg.stats.manager.model.season;
+package org.faarg.stats.manager.season;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

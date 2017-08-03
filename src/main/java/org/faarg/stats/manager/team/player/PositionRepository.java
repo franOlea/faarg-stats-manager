@@ -1,6 +1,6 @@
-package org.faarg.stats.manager.service.repository;
+package org.faarg.stats.manager.team.player;
 
-import org.faarg.stats.manager.model.team.player.Position;
+import org.faarg.stats.manager.team.player.Position;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;

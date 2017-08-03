@@ -1,4 +1,4 @@
-package org.faarg.stats.manager.model.team.player;
+package org.faarg.stats.manager.team.player;
 
 import javax.persistence.*;
 

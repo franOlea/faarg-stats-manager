@@ -1,4 +1,4 @@
-package org.faarg.stats.manager.model.season;
+package org.faarg.stats.manager.game;
 
 import javax.persistence.*;
 
@@ -17,10 +17,10 @@ public class Result {
     @Column(name = "Q2_LOCAL", nullable = false)
     private Integer secondQuarterLocalTeam;
     
-    @Column(name = "Q3_LOCAL", nullable = true)
+    @Column(name = "Q3_LOCAL")
     private Integer thirdQuarterLocalTeam;
     
-    @Column(name = "Q4_LOCAL", nullable = true)
+    @Column(name = "Q4_LOCAL")
     private Integer fourthQuarterLocalTeam;
 
     @Column(name = "Q1_VISIT", nullable = false)
@@ -29,10 +29,10 @@ public class Result {
     @Column(name = "Q2_VISIT", nullable = false)
     private Integer secondQuarterVisitTeam;
 
-    @Column(name = "Q3_VISIT", nullable = true)
+    @Column(name = "Q3_VISIT")
     private Integer thirdQuarterVisitTeam;
 
-    @Column(name = "Q4_VISIT", nullable = true)
+    @Column(name = "Q4_VISIT")
     private Integer fourthQuarterVisitTeam;
 
     public Result() {
