@@ -1,6 +1,5 @@
 package org.faarg.stats.manager.team;
 
-import org.faarg.stats.manager.team.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
